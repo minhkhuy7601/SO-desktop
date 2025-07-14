@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+out/
+build/
+
+# Electron-builder artifacts
+*.blockmap
+*.yml
+
+# macOS files
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional
+.env
+*.local
