@@ -15,7 +15,7 @@ function createMainWindow() {
     },
   });
 
-  mainWin.loadURL('https://4ddfea3b82af.ngrok-free.app');
+  mainWin.loadURL('https://self-order-lalala-cafe.vercel.app');
 }
 
 app.whenReady().then(createMainWindow);
