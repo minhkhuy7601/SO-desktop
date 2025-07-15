@@ -1,5 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  printHTML: (htmlContent) => ipcRenderer.send('print-html', htmlContent),
+  printHTML: (htmlContent) => ipcRenderer.invoke('print-html', htmlContent),
+  exitApp: () => ipcRenderer.send('exit-app'),
 });
