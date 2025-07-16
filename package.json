@@ -13,10 +13,11 @@
   },
   "build": {
     "appId": "com.yourcompany.kioskapp",
-    "productName": "My Kiosk App",
+    "productName": "Lalala Cafe SO",
     "files": [
       "**/*"
     ],
+    "icon": "build/icon.ico",
     "win": {
       "target": "nsis"
     }
