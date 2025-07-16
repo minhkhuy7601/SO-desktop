@@ -58,11 +58,13 @@ ipcMain.handle('print-html', async (event, htmlContent) => {
       printWin.close();
     });
 
-    printWin.webContents.on('did-finish-load', () => {
-      console.log('✅ did-finish-load fired');
-
+    printWin.webContents.on('did-finish-load', async () => {
       printWin.webContents.print(
-        { silent: true, printBackground: true },
+        {
+          silent: true,
+          printBackground: true,
+          margins: { marginType: 'none' },
+        },
         (success, errorType) => {
           console.log('✅ Print callback fired');
           if (!success) {
