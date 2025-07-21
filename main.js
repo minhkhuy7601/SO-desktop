@@ -59,12 +59,26 @@ ipcMain.handle('print-html', async (event, htmlContent) => {
     });
 
     printWin.webContents.on('did-finish-load', async () => {
+      // try {
+      //   const pdfData = await printWin.webContents.printToPDF({
+      //     printBackground: true,
+      //     marginsType: 1,
+      //   });
+      //   const fs = require('fs');
+      //   const outputPath = path.join(app.getPath('desktop'), 'preview.pdf');
+      //   fs.writeFileSync(outputPath, pdfData);
+      //   console.log(`✅ PDF saved to ${outputPath}`);
+      // } catch (error) {
+      //   console.error('❌ Failed to generate PDF:', error);
+      // }
+
       printWin.webContents.print(
         {
           silent: true,
           printBackground: true,
-          margins: { marginType: 'none' },
+          margins: { marginType: 'minimum' },
         },
+
         (success, errorType) => {
           console.log('✅ Print callback fired');
           if (!success) {
@@ -83,6 +97,7 @@ ipcMain.handle('print-html', async (event, htmlContent) => {
     printWin.loadURL(
       `data:text/html;charset=utf-8,${encodeURIComponent(htmlContent)}`,
     );
+    console.log('htmlContent', htmlContent);
     console.log('loadURL called!');
   });
 });

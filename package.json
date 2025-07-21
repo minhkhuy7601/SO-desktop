@@ -17,7 +17,6 @@
     "files": [
       "**/*"
     ],
-    "icon": "build/icon.ico",
     "win": {
       "target": "nsis"
     }
